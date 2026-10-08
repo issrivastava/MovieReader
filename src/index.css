@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Minimal visual language — light theme, strong type + spacing. */
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #faf7f5; /* soft warm tint — cards stay pure white */
+  color: #18181b; /* zinc-900 */
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.006em;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #e11d48; /* rose-600 */
+  color: #ffffff;
+}
+
+/* Accessible focus: 2px accent outline, always visible on keyboard nav */
+:focus-visible {
+  outline: 2px solid #e11d48;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Type scale: tight headings, muted subtext */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Flat skeleton: no shimmer gradients, respects reduced motion */
+.skeleton {
+  background-color: rgb(0 0 0 / 0.08);
+  border-radius: 8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton-pulse {
+    animation: skeleton-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+}
+
+/* Large-list performance: skip offscreen rendering work */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+img {
+  background-color: rgb(0 0 0 / 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
